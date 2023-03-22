@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const MainTitle = styled.h1`
   font-family: Montserrat;
@@ -10,7 +10,7 @@ export const MainTitle = styled.h1`
   text-align: center;
 
   color: ${(props) => props.theme.colors.white};
-`
+`;
 
 export const SubTitle = styled.h2`
   font-family: Montserrat;
@@ -23,4 +23,4 @@ export const SubTitle = styled.h2`
   text-transform: uppercase;
 
   color: ${(props) => props.theme.colors.white};
-`
+`;

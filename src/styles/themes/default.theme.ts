@@ -2,6 +2,7 @@ import { Theme } from "./theme.type";
 
 export const defaultTheme: Theme = {
   colors: {
+    white: "#FFFFFF",
     primary: "#151F2B",
     orangeGrandient:
       "linear-gradient(124.18deg, #FE8A00 22.06%, #FE8A00 81.62%)",
@@ -10,6 +11,7 @@ export const defaultTheme: Theme = {
     mediumGray: "#CFCFCF",
   },
   fontWeights: {
+    extraLight: "300",
     light: "400",
     regular: "500",
     semibold: "600",

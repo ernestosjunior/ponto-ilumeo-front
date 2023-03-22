@@ -1,5 +1,6 @@
 export interface Theme {
   colors: {
+    white: string;
     primary: string;
     orangeGrandient: string;
     gray: string;
@@ -7,6 +8,7 @@ export interface Theme {
     mediumGray: string;
   };
   fontWeights: {
+    extraLight: string;
     light: string;
     regular: string;
     semibold: string;
