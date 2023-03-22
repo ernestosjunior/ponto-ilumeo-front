@@ -12,6 +12,9 @@ export const ResetStyle = createGlobalStyle`
   }
 
   body {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
     font-family: 'Montserrat', sans-serif;
 
     background-color: ${(props) => props.theme.colors.primary};
