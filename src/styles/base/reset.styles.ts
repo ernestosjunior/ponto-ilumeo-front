@@ -19,4 +19,9 @@ export const ResetStyle = createGlobalStyle`
 
     background-color: ${(props) => props.theme.colors.primary};
   }
+
+  #__next{
+    width: 100%;
+    height: 100vh;
+  }
 `;
