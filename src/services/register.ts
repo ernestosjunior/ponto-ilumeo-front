@@ -3,7 +3,7 @@ import { api } from "./api";
 export const getRegisters = async (code: string) => {
   const {
     data: { message, data },
-  } = await api.get(`/collaborator/${code}`);
+  } = await api.get(`/register/${code}`);
 
   if (message !== "OK") return;
 
