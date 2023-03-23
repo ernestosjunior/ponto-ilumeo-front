@@ -9,7 +9,7 @@ export const RegisterTemplate: React.FC<{ registersApi: Registers }> = ({
   registersApi,
 }) => {
   const { registers, code, handleRegister } = useRegister({ registersApi });
-  console.log(registers);
+
   const restRegisters = registers.others;
 
   const entryHour = registers.current?.entryHour;

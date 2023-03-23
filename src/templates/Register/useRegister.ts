@@ -13,7 +13,6 @@ export const useRegister = ({ registersApi }: UseRegister) => {
 
   const getNewRegisters = () =>
     getRegisters(code).then((data) => {
-      console.log(data);
       setRegisters(data);
     });
 
