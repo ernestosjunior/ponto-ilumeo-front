@@ -43,4 +43,28 @@ export const Container = styled.section`
       text-align: end;
     }
   }
+
+  .bottom {
+    width: 365px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 19px;
+
+    @media (max-width: 480px) {
+      width: 340px;
+    }
+
+    .title {
+      color: ${defaultTheme.colors.lightGray};
+      font-weight: ${defaultTheme.fontWeights.bold};
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    .scroll {
+      display: flex;
+      flex-direction: column;
+      row-gap: 8px;
+    }
+  }
 `;

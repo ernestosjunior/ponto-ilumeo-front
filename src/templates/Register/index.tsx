@@ -1,10 +1,21 @@
 import React from "react";
 import * as S from "./styles";
 import { CardRegister, Button, Stopwatch } from "@/components";
+import { useRegister } from "./useRegister";
+import { Register, Registers } from "@/interfaces";
+import ScrollContainer from "react-indiana-drag-scroll";
 
-export const RegisterTemplate: React.FC = () => {
-  const entryHour = "18:00:00";
+export const RegisterTemplate: React.FC<{ registersApi: Registers }> = ({
+  registersApi,
+}) => {
+  const { registers } = useRegister({ registersApi });
+  const restRegisters = registers.others;
+
+  const entryHour = registers.current?.entryHour;
+  const exitHour = registers.current?.exitHour;
+
   const buttonLabel = !!entryHour ? "Hora de saída" : "Hora de entrada";
+
   return (
     <S.Container>
       <section className="top">
@@ -15,10 +26,32 @@ export const RegisterTemplate: React.FC = () => {
             <span className="label">Usuário</span>
           </div>
         </div>
-        <Stopwatch date="22/03/2023" entryHour={entryHour} />
-        <Button onClick={() => null}>{buttonLabel}</Button>
+        <Stopwatch
+          date="22/03/2023"
+          entryHour={entryHour}
+          exitHour={exitHour}
+        />
+        <Button disabled={!!entryHour} onClick={() => null}>
+          {buttonLabel}
+        </Button>
       </section>
-      <CardRegister date="22/03/2023" entryHour="18:00" exitHour="22:00" />
+      <div className="bottom">
+        <h2 className="title">Dias anteriores</h2>
+        <ScrollContainer
+          horizontal={false}
+          hideScrollbars={false}
+          className="scroll"
+        >
+          {restRegisters?.map((item: Register) => (
+            <CardRegister
+              key={item.id}
+              date={item.date}
+              entryHour={item.entryHour}
+              exitHour={item.exitHour}
+            />
+          ))}
+        </ScrollContainer>
+      </div>
     </S.Container>
   );
 };
