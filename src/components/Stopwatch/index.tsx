@@ -35,6 +35,7 @@ export const Stopwatch: React.FC<StopwatchProps> = ({
     }
 
     if (entryHour && exitHour) {
+      if (intervalId.current) clearInterval(intervalId.current);
       setTime(getHourDifference({ date, entryHour, exitHour }));
     }
 

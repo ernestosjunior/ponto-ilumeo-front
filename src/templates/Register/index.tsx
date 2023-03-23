@@ -8,7 +8,8 @@ import ScrollContainer from "react-indiana-drag-scroll";
 export const RegisterTemplate: React.FC<{ registersApi: Registers }> = ({
   registersApi,
 }) => {
-  const { registers, code } = useRegister({ registersApi });
+  const { registers, code, handleRegister } = useRegister({ registersApi });
+  console.log(registers);
   const restRegisters = registers.others;
 
   const entryHour = registers.current?.entryHour;
@@ -31,7 +32,10 @@ export const RegisterTemplate: React.FC<{ registersApi: Registers }> = ({
           entryHour={entryHour}
           exitHour={exitHour}
         />
-        <Button disabled={!!entryHour} onClick={() => null}>
+        <Button
+          disabled={!!entryHour && !!exitHour}
+          onClick={() => handleRegister()}
+        >
           {buttonLabel}
         </Button>
       </section>
