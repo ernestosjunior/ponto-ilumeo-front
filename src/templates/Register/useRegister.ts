@@ -7,12 +7,12 @@ interface UseRegister {
 }
 
 export const useRegister = ({ registersApi }: UseRegister) => {
-  const { registers, setRegisters } = useApp();
+  const { registers, setRegisters, code } = useApp();
 
   useEffect(() => {
     setRegisters(registersApi);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [registersApi]);
 
-  return { registers };
+  return { registers, code };
 };

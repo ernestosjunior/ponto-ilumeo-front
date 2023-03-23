@@ -24,10 +24,9 @@ interface AppContextProps {
 const AppContext = createContext({} as AppContextProps);
 
 export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
-  const [code, setCode] = useState("");
-  const [registers, setRegisters] = useState({} as Registers);
-
   const router = useRouter();
+  const [code, setCode] = useState(router.query.code as string);
+  const [registers, setRegisters] = useState({} as Registers);
 
   const handleLogin = async (code: string) => {
     try {
