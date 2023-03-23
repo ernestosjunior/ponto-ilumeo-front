@@ -2,6 +2,7 @@ import { RegisterTemplate } from "@/templates";
 import { GetServerSidePropsContext } from "next";
 import { getRegisters } from "@/services/register";
 import { Registers } from "@/interfaces";
+import Head from "next/head";
 
 export interface RegisterProps {
   registers: Registers;
@@ -10,6 +11,9 @@ export interface RegisterProps {
 export default function Register(props: RegisterProps) {
   return (
     <>
+      <Head>
+        <title>Ponto Ilumeo | Registrar ponto</title>
+      </Head>
       <RegisterTemplate registersApi={props.registers} />
     </>
   );
