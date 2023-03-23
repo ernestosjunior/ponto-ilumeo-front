@@ -32,12 +32,7 @@ export const RegisterTemplate: React.FC<{ registersApi: Registers }> = ({
           entryHour={entryHour}
           exitHour={exitHour}
         />
-        <Button
-          disabled={!!entryHour && !!exitHour}
-          onClick={() => handleRegister()}
-        >
-          {buttonLabel}
-        </Button>
+        <Button onClick={() => handleRegister()}>{buttonLabel}</Button>
       </section>
       <div className="bottom">
         <h2 className="title">Dias anteriores</h2>
