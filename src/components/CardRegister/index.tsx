@@ -15,12 +15,14 @@ export const CardRegister: React.FC<CardRegisterProps> = ({
 }) => {
   if (!date) return null;
 
+  const label = !!exitHour
+    ? getHourDifference({ date, entryHour, exitHour })
+    : "Não registrou saída";
+
   return (
     <S.Card>
       <p className="field">{date}</p>
-      <p className="field bold">
-        {getHourDifference({ date, entryHour, exitHour })}
-      </p>
+      <p className="field bold">{label}</p>
     </S.Card>
   );
 };
