@@ -1,5 +1,7 @@
 import moment from "moment";
 
+const format = "DD/MM/YYYY HH:mm:ss";
+
 export const getHourDifference = ({
   date,
   entryHour,
@@ -14,9 +16,7 @@ export const getHourDifference = ({
   const entry = `${date} ${entryHour}`;
   const current = `${date} ${exitHour}`;
 
-  const ms = moment(current, "DD/MM/YYYY HH:mm:ss").diff(
-    moment(entry, "DD/MM/YYYY HH:mm:ss")
-  );
+  const ms = moment.utc(current, format).diff(moment.utc(entry, format));
 
   const d = moment.duration(ms);
 
@@ -30,7 +30,7 @@ export const getHourDifferenceToday = ({
   date: string;
   entryHour?: string;
 }) => {
-  const [_, current] = moment().format("DD/MM/YYYY HH:mm:ss").split(" ");
+  const [_, current] = moment().utc().format(format).split(" ");
 
   return getHourDifference({ date, entryHour, exitHour: current });
 };
