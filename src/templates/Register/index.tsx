@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./styles";
-import { Input, Button, Stopwatch } from "@/components";
+import { CardRegister, Button, Stopwatch } from "@/components";
 
 export const RegisterTemplate: React.FC = () => {
   const entryHour = "18:00:00";
@@ -18,6 +18,7 @@ export const RegisterTemplate: React.FC = () => {
         <Stopwatch date="22/03/2023" entryHour={entryHour} />
         <Button onClick={() => null}>{buttonLabel}</Button>
       </section>
+      <CardRegister date="22/03/2023" entryHour="18:00" exitHour="22:00" />
     </S.Container>
   );
 };
